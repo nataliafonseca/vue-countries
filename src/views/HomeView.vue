@@ -65,7 +65,11 @@ export default {
         });
     },
     filterByRegion() {
-      this.populateCountriesList(`region/${this.region}`);
+      if (this.region === "All") {
+        this.populateCountriesList("all");
+      } else {
+        this.populateCountriesList(`region/${this.region}`);
+      }
     },
     searchByName(value) {
       if (value.trim()) {
