@@ -1,8 +1,8 @@
 <template>
   <div class="search-bar">
-    <template>
-      <v-text-field label="Search for a country"></v-text-field>
-    </template>
+    <v-form @submit.prevent="triggerSearch">
+      <v-text-field label="Search for a country" v-model="value"></v-text-field>
+    </v-form>
   </div>
 </template>
 
@@ -10,7 +10,14 @@
 export default {
   name: "SearchBar",
   data() {
-    return {};
+    return {
+      value: "",
+    };
+  },
+  methods: {
+    triggerSearch() {
+      this.$emit("trigger-search", this.value);
+    },
   },
 };
 </script>

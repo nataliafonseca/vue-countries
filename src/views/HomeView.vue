@@ -1,6 +1,6 @@
 <template>
   <div class="home-view">
-    <search-bar />
+    <search-bar @trigger-search="searchByName" />
     <v-col class="d-flex" cols="8" sm="6">
       <v-select
         :items="items"
@@ -19,7 +19,6 @@
           :key="country.name.common"
           :country="country"
         />
-        {{ countriesList }}
       </div>
     </transition>
   </div>
@@ -54,8 +53,8 @@ export default {
     filterByRegion() {
       this.populateCountriesList(`region/${this.region}`);
     },
-    searchByName() {
-      this.populateCountriesList(`name/${this.$store.state.searchTerm}`);
+    searchByName(value) {
+      this.populateCountriesList(`name/${value}`);
     },
   },
   created() {
