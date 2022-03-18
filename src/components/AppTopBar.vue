@@ -1,18 +1,22 @@
 <template>
-  <div class="app-top-bar">
-    <v-app-bar elevation="1">
-      <v-toolbar-title class="title">Where in the world?</v-toolbar-title>
-      <v-icon
+  <!-- <div class="app-top-bar"> -->
+  <v-app-bar class="app-top-bar" elevation="1">
+    <v-toolbar-title class="title">Where in the world?</v-toolbar-title>
+    <transition>
+      <v-btn
+        icon
         @click="toggleColorTheme"
-        v-if="$vuetify.theme.dark"
         class="color-mode-toggle"
-        >fa-sun</v-icon
+        v-if="$vuetify.theme.dark"
       >
-      <v-icon @click="toggleColorTheme" v-else class="color-mode-toggle"
-        >fa-moon</v-icon
-      >
-    </v-app-bar>
-  </div>
+        <v-icon>fa-sun</v-icon>
+      </v-btn>
+      <v-btn icon @click="toggleColorTheme" class="color-mode-toggle" v-else>
+        <v-icon>fa-moon</v-icon>
+      </v-btn>
+    </transition>
+  </v-app-bar>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -36,9 +40,12 @@ export default {
 </script>
 
 <style scoped>
+.app-top-bar {
+  padding-right: 16px;
+}
+
 .color-mode-toggle {
   margin-left: auto;
-  padding-right: 1rem;
 }
 
 .title {
