@@ -18,7 +18,7 @@
       <div v-else key="element">
         <country-card
           class="mb-6"
-          v-for="country in countriesList"
+          v-for="country in countriesListOrdered"
           :key="country.name.common"
           :country="country"
         />
@@ -42,6 +42,13 @@ export default {
       loading: true,
       noMatch: false,
     };
+  },
+  computed: {
+    countriesListOrdered() {
+      return [...this.countriesList].sort((a, b) =>
+        a.name.common < b.name.common ? -1 : 1
+      );
+    },
   },
   methods: {
     populateCountriesList(path) {

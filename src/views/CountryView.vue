@@ -58,7 +58,7 @@
           <div class="d-flex flex-wrap">
             <v-btn
               class="mr-3 mt-3"
-              v-for="border in countryData.borders"
+              v-for="border in borderCountriesOrdered"
               :key="border"
               @click="
                 $router.push({
@@ -83,8 +83,12 @@ export default {
     return {
       loading: false,
       countryData: null,
-      borderCountries: [],
     };
+  },
+  computed: {
+    borderCountriesOrdered() {
+      return [...this.countryData.borders].sort();
+    },
   },
   methods: {
     getCountryData(code) {
