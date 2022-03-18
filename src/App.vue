@@ -1,7 +1,9 @@
 <template>
   <v-app>
-    <app-top-bar />
-    <router-view />
+    <div class="mobile-container">
+      <app-top-bar />
+      <router-view />
+    </div>
   </v-app>
 </template>
 
@@ -50,5 +52,14 @@ button {
 
 .v-enter-active {
   transition: all 0.3s;
+}
+
+.mobile-container {
+  width: 500px;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 </style>
