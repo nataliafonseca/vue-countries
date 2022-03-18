@@ -16,12 +16,14 @@
         <p>No country matches this search.</p>
       </div>
       <div v-else key="element">
-        <country-card
-          class="mb-6"
+        <v-lazy
           v-for="country in countriesListOrdered"
           :key="country.name.common"
-          :country="country"
-        />
+          v-model="isActive"
+          transition="fade-transition"
+        >
+          <country-card class="mb-6" :country="country" />
+        </v-lazy>
       </div>
     </transition>
   </div>
@@ -41,6 +43,7 @@ export default {
       items: ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"],
       loading: true,
       noMatch: false,
+      isActive: false,
     };
   },
   computed: {
