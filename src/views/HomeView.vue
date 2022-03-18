@@ -54,7 +54,9 @@ export default {
       this.populateCountriesList(`region/${this.region}`);
     },
     searchByName(value) {
-      this.populateCountriesList(`name/${value}`);
+      if (value.trim()) {
+        this.populateCountriesList(`name/${value.trim()}`);
+      }
     },
   },
   created() {
