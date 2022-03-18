@@ -1,21 +1,27 @@
 <template>
-  <v-card class="mx-auto" max-width="344">
-    <v-img :src="data.flags.png" height="200px"></v-img>
+  <div class="country-card">
+    <router-link :to="country.name.common.toLowerCase()">
+      <v-card class="mx-auto" max-width="344">
+        <v-img :src="country.flags.png" height="200px"></v-img>
 
-    <v-card-title>{{ data.name.common }}</v-card-title>
+        <v-card-title>{{ country.name.common }}</v-card-title>
 
-    <v-card-subtitle>
-      <p><strong>Population: </strong>{{ data.population | numberFormat }}</p>
-      <p><strong>Region: </strong>{{ data.region }}</p>
-      <p><strong>Capital: </strong>{{ data.capital[0] }}</p>
-    </v-card-subtitle>
-  </v-card>
+        <v-card-subtitle>
+          <p>
+            <strong>Population: </strong>{{ country.population | numberFormat }}
+          </p>
+          <p><strong>Region: </strong>{{ country.region }}</p>
+          <p><strong>Capital: </strong>{{ country.capital[0] }}</p>
+        </v-card-subtitle>
+      </v-card>
+    </router-link>
+  </div>
 </template>
 
 <script>
 export default {
   name: "CountryCard",
-  props: ["data"],
+  props: ["country"],
   data() {
     return {};
   },

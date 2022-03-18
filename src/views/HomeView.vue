@@ -1,25 +1,24 @@
 <template>
   <div class="home-view">
     <search-bar />
+    <v-col class="d-flex" cols="8" sm="6">
+      <v-select
+        :items="items"
+        label="Filter by Region"
+        v-model="region"
+      ></v-select>
+    </v-col>
     <transition>
-      <div v-if="loading" class="text-center" key="loading">
+      <div v-if="loading" class="text-center mt-6" key="loading">
         <v-progress-circular indeterminate></v-progress-circular>
       </div>
       <div v-else key="element">
-        <v-col class="d-flex" cols="8" sm="6">
-          <v-select
-            :items="items"
-            label="Filter by Region"
-            v-model="region"
-          ></v-select>
-        </v-col>
         <country-card
           class="mb-6"
           v-for="country in countriesList"
-          :key="country.tld"
-          :data="country"
+          :key="country.name.common"
+          :country="country"
         />
-
         {{ countriesList }}
       </div>
     </transition>
@@ -55,6 +54,9 @@ export default {
     filterByRegion() {
       this.populateCountriesList(`region/${this.region}`);
     },
+    searchByName() {
+      this.populateCountriesList(`name/${this.$store.state.searchTerm}`);
+    },
   },
   created() {
     this.populateCountriesList("all");
@@ -70,13 +72,5 @@ export default {
 <style scoped>
 .home-view {
   padding: 20px;
-}
-
-.v-enter {
-  opacity: 0;
-}
-
-.v-enter-active {
-  transition: all 0.3s;
 }
 </style>

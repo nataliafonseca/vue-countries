@@ -14,6 +14,7 @@ const routes = [
   {
     path: "/:country",
     name: "country",
+    props: true,
     component: () =>
       import(/* webpackChunkName: "country" */ "../views/CountryView.vue"),
   },

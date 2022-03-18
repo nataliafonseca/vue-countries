@@ -1,16 +1,16 @@
 <template>
   <v-app>
-    <header-component />
+    <app-top-bar />
     <router-view />
   </v-app>
 </template>
 
 <script>
-import HeaderComponent from "./components/HeaderComponent.vue";
+import AppTopBar from "./components/AppTopBar.vue";
 
 export default {
   name: "App",
-  components: { HeaderComponent },
+  components: { AppTopBar },
   created() {
     const colorTheme = localStorage.getItem("color_theme");
     this.$vuetify.theme.dark = colorTheme === "dark" ? true : false;
@@ -42,5 +42,13 @@ button {
   cursor: pointer;
   font-family: inherit;
   font-size: 1rem;
+}
+
+.v-enter {
+  opacity: 0;
+}
+
+.v-enter-active {
+  transition: all 0.3s;
 }
 </style>
