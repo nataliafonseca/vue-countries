@@ -1,9 +1,7 @@
 <template>
-  <div class="search-bar">
-    <v-form @submit.prevent="triggerSearch">
-      <v-text-field label="Search for a country" v-model="value"></v-text-field>
-    </v-form>
-  </div>
+  <v-form @submit.prevent="triggerSearch">
+    <v-text-field label="Search for a country" v-model="value"></v-text-field>
+  </v-form>
 </template>
 
 <script>
