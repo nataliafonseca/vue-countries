@@ -1,6 +1,10 @@
 <template>
   <v-app-bar class="app-top-bar" elevation="1">
-    <v-toolbar-title class="title">Where in the world?</v-toolbar-title>
+    <v-toolbar-title class="title"
+      ><router-link :to="{ name: 'home' }"
+        >Where in the world?</router-link
+      ></v-toolbar-title
+    >
     <v-btn
       icon
       @click="toggleColorTheme"

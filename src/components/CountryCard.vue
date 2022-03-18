@@ -1,11 +1,11 @@
 <template>
-  <router-link
-    :to="{
-      name: 'country',
-      params: { countryCode: country.cioc.toLowerCase() },
-    }"
-  >
-    <v-card class="mx-auto" max-width="344">
+  <v-card class="mx-auto" max-width="344">
+    <router-link
+      :to="{
+        name: 'country',
+        params: { countryCode: country.cioc.toLowerCase() },
+      }"
+    >
       <v-img :src="country.flags.png" height="200px"></v-img>
 
       <v-card-title>{{ country.name.common }}</v-card-title>
@@ -17,8 +17,8 @@
         <p><strong>Region: </strong>{{ country.region }}</p>
         <p><strong>Capital: </strong>{{ country.capital[0] }}</p>
       </v-card-subtitle>
-    </v-card>
-  </router-link>
+    </router-link>
+  </v-card>
 </template>
 
 <script>

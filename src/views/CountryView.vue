@@ -1,12 +1,6 @@
 <template>
   <div class="country-view">
-    <v-btn
-      @click="
-        $router.push({
-          name: 'home',
-        })
-      "
-    >
+    <v-btn @click="$router.go(-1)">
       <v-icon left>fa-arrow-left</v-icon>
       Back
     </v-btn>
