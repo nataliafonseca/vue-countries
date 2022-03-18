@@ -12,6 +12,9 @@
       <div v-if="loading" class="text-center mt-6" key="loading">
         <v-progress-circular indeterminate></v-progress-circular>
       </div>
+      <div v-else-if="noMatch" class="text-center mt-6" key="noMatch">
+        <p>No country matches this search.</p>
+      </div>
       <div v-else key="element">
         <country-card
           class="mb-6"
@@ -37,17 +40,28 @@ export default {
       countriesList: null,
       items: ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"],
       loading: true,
+      noMatch: false,
     };
   },
   methods: {
     populateCountriesList(path) {
       this.countriesList = null;
       this.loading = true;
+      this.noMatch = false;
+
       fetch(`https://restcountries.com/v3.1/${path}`)
-        .then((response) => response.json())
+        .then((response) => {
+          console.log(response);
+          return response.json();
+        })
         .then((json) => {
-          this.countriesList = json;
-          this.loading = false;
+          if (json.status === 404) {
+            this.loading = false;
+            this.noMatch = true;
+          } else {
+            this.countriesList = json;
+            this.loading = false;
+          }
         });
     },
     filterByRegion() {
@@ -56,6 +70,8 @@ export default {
     searchByName(value) {
       if (value.trim()) {
         this.populateCountriesList(`name/${value.trim()}`);
+      } else {
+        this.populateCountriesList("all");
       }
     },
   },
