@@ -1,24 +1,17 @@
-# vue-countries
+# Countries - Frontend Challenge
 
-## Project setup
-```
-yarn install
-```
+Adaptation of the [REST Countries API Challenge](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca) from Frontend Mentor using Vue and Vuetify.
+The style guide was ignored as my goal with this challenge was to get myself familiarized with the Vuetify UI Library.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+<br>
+<div align=center>
+  <img height='600px' src='./assets/home-screenshot.png' />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img height='600px' src='./assets/country-screenshot.png' />
+</div>
 
-### Compiles and minifies for production
-```
-yarn build
-```
+---
+<div align="center">
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![Deploy Status Badge](https://img.shields.io/github/deployments/nataliafonseca/vue-countries/Production?label=vercel&logo=vercel&style=for-the-badge)
+</div>
