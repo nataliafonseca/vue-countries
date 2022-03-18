@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import CountryView from "../views/CountryView.vue";
 import HomeView from "../views/HomeView.vue";
 
 Vue.use(VueRouter);
@@ -12,11 +13,10 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/:country",
+    path: "/:countryCode",
     name: "country",
     props: true,
-    component: () =>
-      import(/* webpackChunkName: "country" */ "../views/CountryView.vue"),
+    component: CountryView,
   },
 ];
 

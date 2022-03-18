@@ -1,6 +1,11 @@
 <template>
   <div class="country-card">
-    <router-link :to="country.name.common.toLowerCase()">
+    <router-link
+      :to="{
+        name: 'country',
+        params: { countryCode: country.cioc.toLowerCase() },
+      }"
+    >
       <v-card class="mx-auto" max-width="344">
         <v-img :src="country.flags.png" height="200px"></v-img>
 
